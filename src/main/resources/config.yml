@@ -1,0 +1,78 @@
+Sign:
+  Blender:
+    tag: blender
+    item:
+      ECHO_SHARD:
+        name: "瞬間移動"
+      MUSIC_DISC_5:
+        name: "テレポートゲート"
+  風の又三郎:
+    tag: matasaburo
+    item:
+      FEATHER:
+        name: "アップドラフト"
+      IRON_SWORD:
+        name: "どっどどどうど"
+  エンジニア:
+    tag: engineer
+    item:
+      DUNE_ARMOR_TRIM_SMITHING_TEMPLATE:
+        name: "ダミープレイヤーズカード"
+      stone_button:
+        name: "エラーコード・-400‐"
+  魔法使い:
+    tag: wizard
+    item:
+      wild_armor_trim_smithing_template:
+        name: "一般防御魔法"
+      stick:
+        name: "一般攻撃魔法"
+        enchantment:
+          id: luck_of_the_sea
+          level: 1
+  黄昏:
+    tag: tasogare
+    item:
+      COMPASS:
+        name: "もじゃもじゃの情報屋"
+      GLOWSTONE_DUST:
+        name: "変装"
+  薬屋:
+    tag: pharmacy
+    item:
+      BLAZE_POWDER:
+        name: "調合"
+      DRAGON_BREATH:
+        name: "医薬品の普及"
+  狩人:
+    tag: hunter
+    item:
+      archer_pottery_sherd:
+        name: "狩りの基本"
+      quartz:
+        name: "少しの知恵と多くの技能"
+  忍者:
+    tag: ninja
+    item:
+      purple_dye:
+        name: "隠密なステップ"
+      amethyst_shard:
+        name: "抜刀・正義の一太刀"
+  影の使者:
+    tag: omen
+    item:
+      firework_star:
+        name: "深淵へ"
+      ender_eye:
+        name: "影からは逃れられない"
+
+  延命の騎士:
+    tag: knight
+    item:
+      heart_of_the_sea:
+        name: "救命連携"
+      tide_armor_trim_smithing_template:
+        name: "完全防御"
+  #観察者:
+  #  tag: spectator
+  #  item:

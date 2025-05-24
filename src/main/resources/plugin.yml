@@ -1,0 +1,4 @@
+name: SignUtil
+version: '1.0-SNAPSHOT'
+main: jp.houlab.mochidsuki.signUtil.Main
+api-version: '1.20'
