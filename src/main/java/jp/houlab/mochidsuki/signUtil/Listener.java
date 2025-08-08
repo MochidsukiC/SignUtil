@@ -94,58 +94,11 @@ public class Listener implements org.bukkit.event.Listener {
     private void checkSign(SignSide side,String word,Player player) {
         for (int i = 0; i < 4;i++){
             if(PlainTextComponentSerializer.plainText().serialize(side.line(i)).equals(word) && config.getString("Sign."+word+".tag") != null) {
-                for(String string : config.getConfigurationSection("Sign").getKeys(false)){
-                    //tag
-                    String tag = config.getString("Sign."+string+".tag");
-                    if(tag != null && player.getScoreboardTags().contains(tag)) {
-                        player.removeScoreboardTag(tag);
-                    }
+                Utils.removeAllSkillItem(player);
+                Utils.removeAllSkillTags(player);
+                Utils.addSkillItem(player,word);
+                Utils.addSkillTag(player,word);
 
-                    //Item
-                    for(String item : config.getConfigurationSection("Sign."+string+".item").getKeys(false)){
-                        Material material = Material.matchMaterial(item);
-                        if(material != null) {
-                            player.getInventory().remove(material);
-                        }
-                    }
-                }
-                player.addScoreboardTag(config.getString("Sign."+word+".tag"));
-
-                player.removeScoreboardTag("JetPack");
-
-                List<String> opts = config.getStringList("Sign."+word+".opt");
-                if(config.getConfigurationSection("Sign."+word).contains("opt") && !opts.isEmpty()) {
-                    for(String string : opts){
-                        switch (string){
-                            case "JetPack"->player.addScoreboardTag("JetPack");
-                        }
-                    }
-                }
-
-                for(String item : config.getConfigurationSection("Sign."+word+".item").getKeys(false)){
-                    Material material = Material.matchMaterial(item);
-                    if(material != null) {
-                        ItemStack itemStack = new ItemStack(material);
-                        ItemMeta itemMeta = itemStack.getItemMeta();
-                        itemMeta.displayName(Component.text(config.getString("Sign."+word+".item."+item+".name")).color(NamedTextColor.NAMES.value(config.getString("Sign."+word+".item."+item+".color","WHITE").toLowerCase(Locale.ROOT))));
-                        List<String> lore = config.getStringList("Sign."+word+".lore");
-                        List<Component> loreComponents = new ArrayList<>();
-                        if(!lore.isEmpty()){
-                            for(String string : lore){
-                                loreComponents.add(Component.text(string));
-                            }
-                            itemMeta.lore(loreComponents);
-                        }
-
-                        if(config.getConfigurationSection("Sign."+word+".item."+item+".enchantment") != null) {
-                            Registry<Enchantment> enchantmentRegistry = Bukkit.getRegistry(Enchantment.class);
-                            itemMeta.addEnchant(enchantmentRegistry.get(new NamespacedKey("minecraft",config.getString("Sign."+word+".item."+item+".enchantment.id"))),config.getInt("Sign."+word+".item."+item+".enchantment.level"),false);
-
-                        }
-                        itemStack.setItemMeta(itemMeta);
-                        player.getInventory().addItem(itemStack);
-                    }
-                }
             }
         }
     }

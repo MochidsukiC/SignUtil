@@ -4,16 +4,32 @@ Sign:
     item:
       ECHO_SHARD:
         name: "瞬間移動"
+        lore:
+          - 20ブロック以内の視点の先のブロックの上にテレポートする。
+          - テレポート後硬直1s
       MUSIC_DISC_5:
         name: "テレポートゲート"
+        lore:
+          - 発動すると自分の立ち位置にゲートを生成し、ウルト展開状態になる。
+          - 展開状態でもう一度発動するとそこにゲートを展開出来る。
+          - ウルト展開中は武器を持てない。
+          - このゲートの上に立つと、もう片方のゲートにTP出来る。
+          - ゲート自体は全プレイヤー使用可能。
         color: AQUA
   風の又三郎:
     tag: matasaburo
     item:
       FEATHER:
         name: "アップドラフト"
+        lore:
+          - 上空に舞い上がる
       IRON_SWORD:
         name: "どっどどどうど"
+        lore:
+          - 後方へ瞬時に飛び上がり、一定時間高度をキープする。
+          - キープ中は「風刃」を飛ばすことができる。
+          - 「風刃」は敵に直接当たるとダメージ、
+          - 壁などに当たると範囲爆発を起こし、周囲の敵にノックバックを与える。
         color: AQUA
     opt:
       - JetPack
@@ -22,16 +38,33 @@ Sign:
     item:
       DUNE_ARMOR_TRIM_SMITHING_TEMPLATE:
         name: "ダミープレイヤーズカード"
+        lore:
+          - スキャン系アビリティにプレイヤーとして反応するダミーカードを投げる。
+          - スポーンポイントに発射するとスポーンポイントがプレイヤー数を勘違いし、
+          - 自分のチームの人数を+1した状態になる。
+          - 破壊不可で20秒後消失する。
       stone_button:
         name: "エラーコード・-400‐"
+        lore:
+          - ダミーカードを召喚している時のみ有効。
+          - 行動で与える効果を切り替える。
+          - "TNT : ダミーカード内に不正電流を流し大爆発を起こす"
+          - "TPカード : ダミーカード上空に即座にテレポートする"
         color: AQUA
   魔法使い:
     tag: wizard
     item:
       wild_armor_trim_smithing_template:
         name: "一般防御魔法"
+        lore:
+          - 防御魔法を展開する。この魔法は飛び道具と近接攻撃を吸収する。
+          - プレイヤーはこの壁を通り抜けることができる。
       stick:
         name: "一般攻撃魔法"
+        lore:
+          - 巨大な魔法陣を展開し、前方に巨大な円柱型のダメージゾーンを発生させる。
+          - ダメージゾーンに触れているプレイヤーは毎ティック20ダメージを受ける。
+          - ダメージゾーンは3秒間持続する。
         color: AQUA
         enchantment:
           id: luck_of_the_sea
@@ -41,40 +74,63 @@ Sign:
     item:
       COMPASS:
         name: "もじゃもじゃの情報屋"
+        lore:
+          - 1秒間敵陣にいる敵全員を発光させる。
       GLOWSTONE_DUST:
         name: "変装"
+        lore:
+          - 敵チームのランダムな人物のスキン、敵チーム色のレギンスに20秒間変装する。
         color: AQUA
   薬屋:
     tag: pharmacy
     item:
       BLAZE_POWDER:
         name: "調合"
+        lore:
+          - 俊敏II、跳躍II、力Iのいずれかの薬を入手する。
       DRAGON_BREATH:
         name: "医薬品の普及"
+        lore:
+          - 味方チーム全員に俊敏IIと跳躍Iを付与する
         color: AQUA
   狩人:
     tag: hunter
     item:
       archer_pottery_sherd:
         name: "狩りの基本"
+        lore:
+          - 連射速度が速いクロスボウを一定時間装備する。(６秒)
       quartz:
         name: "少しの知恵と多くの技能"
+        lore:
+          - 前に障害物を建てる。
+          - 障害物の周りにいる時、アビリティのダメージ増加、
+          - 更にクールタイム減少(CT:6s)
         color: AQUA
   忍者:
     tag: ninja
     item:
       purple_dye:
         name: "隠密なステップ"
+        lore:
+          - 数秒間透明化、足が速くなり、俊敏に移動する。
       amethyst_shard:
         name: "抜刀・正義の一太刀"
+        lore:
+          - 少しの溜め時間(鈍足と耐性付与)の後強化された刀(一撃確殺)を獲得する。
+          - 誰かを倒すか、15秒経つと刀は消滅する。
         color: AQUA
   影の使者:
     tag: omen
     item:
       firework_star:
         name: "深淵へ"
+        lore:
+        - 前方へ影の玉を放ち、当たった敵に発光と盲目を与える。
       ender_eye:
         name: "影からは逃れられない"
+        lore:
+          - 周囲のプレイヤーに一瞬の間弱体化と発光を与える。
         color: AQUA
 
   延命の騎士:
@@ -82,8 +138,13 @@ Sign:
     item:
       heart_of_the_sea:
         name: "救命連携"
+        lore:
+          - 指定した味方単体に少量の体力増加(シールド)を与える。
       tide_armor_trim_smithing_template:
         name: "完全防御"
+        lore:
+          - シールドを付けた味方1人の頭上に即座にテレポートし、
+          - 周囲の味方に体力増加、攻撃力上昇を付与する。(15秒間)
         color: AQUA
   #観察者:
   #  tag: spectator
