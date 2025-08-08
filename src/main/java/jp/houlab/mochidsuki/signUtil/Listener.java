@@ -1,5 +1,8 @@
 package jp.houlab.mochidsuki.signUtil;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.serializer.plain.PlainComponentSerializer;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.Bukkit;
@@ -9,6 +12,7 @@ import org.bukkit.Registry;
 import org.bukkit.block.Sign;
 import org.bukkit.block.sign.Side;
 import org.bukkit.block.sign.SignSide;
+import org.bukkit.command.Command;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -16,6 +20,10 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import static jp.houlab.mochidsuki.signUtil.Main.config;
 import static jp.houlab.mochidsuki.signUtil.Main.plugin;
@@ -103,17 +111,38 @@ public class Listener implements org.bukkit.event.Listener {
                 }
                 player.addScoreboardTag(config.getString("Sign."+word+".tag"));
 
+                player.removeScoreboardTag("JetPack");
+
+                List<String> opts = config.getStringList("Sign."+word+".opt");
+                if(config.getConfigurationSection("Sign."+word).contains("opt") && !opts.isEmpty()) {
+                    for(String string : opts){
+                        switch (string){
+                            case "JetPack"->player.addScoreboardTag("JetPack");
+                        }
+                    }
+                }
 
                 for(String item : config.getConfigurationSection("Sign."+word+".item").getKeys(false)){
                     Material material = Material.matchMaterial(item);
                     if(material != null) {
                         ItemStack itemStack = new ItemStack(material);
+                        ItemMeta itemMeta = itemStack.getItemMeta();
+                        itemMeta.displayName(Component.text(config.getString("Sign."+word+".item."+item+".name")).color(NamedTextColor.NAMES.value(config.getString("Sign."+word+".item."+item+".color","WHITE").toLowerCase(Locale.ROOT))));
+                        List<String> lore = config.getStringList("Sign."+word+".lore");
+                        List<Component> loreComponents = new ArrayList<>();
+                        if(!lore.isEmpty()){
+                            for(String string : lore){
+                                loreComponents.add(Component.text(string));
+                            }
+                            itemMeta.lore(loreComponents);
+                        }
+
                         if(config.getConfigurationSection("Sign."+word+".item."+item+".enchantment") != null) {
                             Registry<Enchantment> enchantmentRegistry = Bukkit.getRegistry(Enchantment.class);
-                            ItemMeta itemMeta = itemStack.getItemMeta();
                             itemMeta.addEnchant(enchantmentRegistry.get(new NamespacedKey("minecraft",config.getString("Sign."+word+".item."+item+".enchantment.id"))),config.getInt("Sign."+word+".item."+item+".enchantment.level"),false);
-                            itemStack.setItemMeta(itemMeta);
+
                         }
+                        itemStack.setItemMeta(itemMeta);
                         player.getInventory().addItem(itemStack);
                     }
                 }

@@ -6,6 +6,7 @@ Sign:
         name: "瞬間移動"
       MUSIC_DISC_5:
         name: "テレポートゲート"
+        color: AQUA
   風の又三郎:
     tag: matasaburo
     item:
@@ -13,6 +14,9 @@ Sign:
         name: "アップドラフト"
       IRON_SWORD:
         name: "どっどどどうど"
+        color: AQUA
+    opt:
+      - JetPack
   エンジニア:
     tag: engineer
     item:
@@ -20,6 +24,7 @@ Sign:
         name: "ダミープレイヤーズカード"
       stone_button:
         name: "エラーコード・-400‐"
+        color: AQUA
   魔法使い:
     tag: wizard
     item:
@@ -27,6 +32,7 @@ Sign:
         name: "一般防御魔法"
       stick:
         name: "一般攻撃魔法"
+        color: AQUA
         enchantment:
           id: luck_of_the_sea
           level: 1
@@ -37,6 +43,7 @@ Sign:
         name: "もじゃもじゃの情報屋"
       GLOWSTONE_DUST:
         name: "変装"
+        color: AQUA
   薬屋:
     tag: pharmacy
     item:
@@ -44,6 +51,7 @@ Sign:
         name: "調合"
       DRAGON_BREATH:
         name: "医薬品の普及"
+        color: AQUA
   狩人:
     tag: hunter
     item:
@@ -51,6 +59,7 @@ Sign:
         name: "狩りの基本"
       quartz:
         name: "少しの知恵と多くの技能"
+        color: AQUA
   忍者:
     tag: ninja
     item:
@@ -58,6 +67,7 @@ Sign:
         name: "隠密なステップ"
       amethyst_shard:
         name: "抜刀・正義の一太刀"
+        color: AQUA
   影の使者:
     tag: omen
     item:
@@ -65,6 +75,7 @@ Sign:
         name: "深淵へ"
       ender_eye:
         name: "影からは逃れられない"
+        color: AQUA
 
   延命の騎士:
     tag: knight
@@ -73,6 +84,7 @@ Sign:
         name: "救命連携"
       tide_armor_trim_smithing_template:
         name: "完全防御"
+        color: AQUA
   #観察者:
   #  tag: spectator
   #  item:
